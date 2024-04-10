@@ -1,10 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    const int arr_size = 10;
-    int arr[arr_size] = {1,2,4,6,8,3,7,3,12,5};
+    const int arr_size; scanf("%d",&arr_size);
+    int arr[arr_size];
+    for(int i = 0; i < arr_size; i++)
+        scanf("%d",&arr[i]);
+
     for(int i = 0; i < arr_size; i++) {
-        for(int j = i+1; j < arr_size; j++) {  //j = 0에서 j = i+1로 바뀜
+        for(int j = i+1; j < arr_size; j++) {
             if(arr[i] > arr[j]) {
                 int tmp = arr[i];
                 arr[i] = arr[j];
@@ -12,6 +15,7 @@ int main() {
             }
         }
     }
+
     for(int i = 0; i < arr_size; i++) 
         printf("%d, ",arr[i]);
     return 0;
