@@ -1,0 +1,2 @@
+#include <stdio.h>
+int main(){int n;scanf("%d",&n);int A[2000001]={0};for(int i=0;i<n;i++){int u;scanf("%d",&u);A[u+1000000]++;}for(int i=0;i<=2000000;i++){for(int j=0;j<A[i];j++){printf("%d\n",i-1000000);}}}
