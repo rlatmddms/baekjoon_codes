@@ -1,11 +1,14 @@
 #include<stdio.h>
-#include<stdlib.h>
 
 int main() {
-    int n,cnt = 0; scanf("%d",&n);
+    int n = getchar() - '0'; char n2 = getchar();
+    if(n2 != '\n') {
+        n = n*10 + n2 - '0';
+        getchar();
+    }
     char words[50][51];
     int lens[50] = {0}, word = 0;
-    getchar();
+    
     for(int i = 0; i < n; i++) {
         char tmp[51]; int tmplen = 0;
         while(1) {
