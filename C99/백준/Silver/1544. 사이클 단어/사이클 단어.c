@@ -46,8 +46,5 @@ int main() {
             word++;
         }
     }
-    if(word > 9) {
-        putchar(word/10 + '0');
-    }
-    putchar(word%10 + '0');
+    printf("%d",word);
 }
