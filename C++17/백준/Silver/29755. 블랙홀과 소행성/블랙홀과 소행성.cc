@@ -28,15 +28,14 @@ int main() {
     }
     sort(p.begin(),p.end(),cmp1);
     sort(b.begin(),b.end(),cmp2);
-    vector<pair<int,int>> near_b;
     int distance=3000000,point = 0,max = 0;
     for(int i = 0; i < p.size(); i++) {
         distance=3000000;
         while(1) {
-            if(ABS(p[i].first - b[point]) < distance) distance = ABS(p[i].first - b[point]);
+            int newdis = ABS(p[i].first - b[point]);
+            if(newdis < distance) distance = newdis;
             else{
                 point--;
-                near_b.push_back(make_pair(point,distance));
                 if(max < distance*p[i].second) max = distance*p[i].second;
                 break;
             }
@@ -44,7 +43,6 @@ int main() {
             if(point >= b.size()) {
                 point--;
                 if(max < distance*p[i].second) max = distance*p[i].second;
-                near_b.push_back(make_pair(point,distance));
                 break;
             }
         }
