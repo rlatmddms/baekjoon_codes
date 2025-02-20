@@ -35,20 +35,13 @@ bool cmp(int a, int b) {
 //a<b 오름차순, a>b내림차순
 //true면 변동x, false이면 순서 바뀜
 
-void jagyu(int n) {
-    int p3 = 1;
-    for(int i = 0; i < n; i++) {
-        p3 *= 3;
-    }
-    for(int i = 0; i < p3; i++) {
-        cout << ' ';
-    }
-}
+string space[14] = {""," ",};
+
 void jagyu_(int n) {
     if(n == 0) cout << '-';
     else {
         jagyu_(n-1);
-        jagyu(n-1);
+        cout << space[n];
         jagyu_(n-1);
     }
 }
@@ -60,6 +53,9 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
     int n; 
+    for (int i = 2; i < 14; i++) {
+        space[i] = space[i-1] + space[i-1] + space[i-1];
+    }
     while(cin >> n) {
         jagyu_(n);
         cout << '\n';
