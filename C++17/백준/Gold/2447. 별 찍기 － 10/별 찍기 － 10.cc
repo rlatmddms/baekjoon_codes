@@ -38,16 +38,11 @@ bool cmp(int a, int b) {
 string board[6562];
 
 void jagyu(int x, int y, int size) {
-    if(size == 3) {
-        board[x+1][y+1] = ' ';
+    if(size == 1) {
         return;
     }
     int div3_size = size/3;
-    for(int i = 0; i < div3_size; i++) {
-        for(int j = 0; j < div3_size; j++) {
-            board[x+div3_size+i][y+div3_size+j] = ' ';
-        }
-    }
+
     jagyu(x,y,div3_size);
     jagyu(x+div3_size,y,div3_size);
     jagyu(x+div3_size*2,y,div3_size);
@@ -56,7 +51,11 @@ void jagyu(int x, int y, int size) {
     jagyu(x,y+div3_size*2,div3_size);
     jagyu(x+div3_size,y+div3_size*2,div3_size);
     jagyu(x+div3_size*2,y+div3_size*2,div3_size);
-
+    for(int i = 0; i < div3_size; i++) {
+        for(int j = 0; j < div3_size; j++) {
+            board[x+div3_size+i][y+div3_size+j] = ' ';
+        }
+    }
 }
 
 void print_board(int size){
