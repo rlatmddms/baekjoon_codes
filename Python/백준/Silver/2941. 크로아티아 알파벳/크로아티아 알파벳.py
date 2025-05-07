@@ -1,0 +1,1 @@
+print(len(input().replace("nj","#").replace("c=","#").replace("c-","#").replace("dz=","#").replace("d-","#").replace("lj","#").replace("s=","#").replace("z=","#")))
