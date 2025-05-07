@@ -1,4 +1,3 @@
-import copy
 def solution(land):
     xlimit = len(land[0])
     ylimit = len(land)
@@ -30,13 +29,11 @@ def solution(land):
     #     print(i)
     mxsum = 0
     for x in range(xlimit):
-        st = set()
-        s = 0
+        s = set()
         for y in range(ylimit):
             if land[y][x] != 0:
-                st.add(land[y][x])
-        while st:
-            s += oils[st.pop()]
+                s.add(land[y][x])
+        s = sum(map(lambda x : oils[x], list(s)))
         if s > mxsum:
             mxsum = s
     return mxsum
