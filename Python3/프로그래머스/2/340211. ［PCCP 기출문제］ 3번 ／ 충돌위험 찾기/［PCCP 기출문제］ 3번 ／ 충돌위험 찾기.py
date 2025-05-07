@@ -7,7 +7,6 @@ def solution(points, routes):
         route.append(start[:])
         l = 1
         for goal in r:
-            
             while start != points[goal-1]:
                 if start[0] < points[goal-1][0]:
                     start[0] += 1
@@ -23,8 +22,6 @@ def solution(points, routes):
         routes_len.append(l)
     max_len = max(routes_len)
     routelen = len(routes)
-    # for i in routes:
-    #     print(i)
     for i in range(max_len):
         dic = dict()
         for j in range(routelen):
