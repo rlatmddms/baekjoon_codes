@@ -3,21 +3,24 @@
 def solution(n):
     answer = [0]
     lst = []
-    def can_put(x,y):
-        for ax,ay in lst:
-            if x == ax or y == ay or x-y == ax-ay or ax+ay == x+y:
-                return False
-        return True
-    def dfs(n,x):
-        if n == x:
+    col_visit = [False]*n
+    cro1_visit = [False]*(2*n)
+    cro2_visit = [False]*(2*n)
+    def dfs(r,x):
+        if r == x:
             # print(lst)
             answer[0] += 1
             return
-        for y in range(n):
-            if can_put(x,y):
-                lst.append((x,y))
-                dfs(n,x+1)
-                lst.pop()
+        for c in range(n):
+            if col_visit[c] or cro1_visit[r+c] or cro2_visit[n+r-c]:
+                continue
+            col_visit[c] = True
+            cro1_visit[r+c] = True
+            cro2_visit[n+r-c] = True
+            dfs(r+1,x)
+            col_visit[c] = False
+            cro1_visit[r+c] = False
+            cro2_visit[n+r-c] = False
         
-    dfs(n,0)
+    dfs(0,n)
     return answer[0]
